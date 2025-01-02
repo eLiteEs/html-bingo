@@ -1,0 +1,42 @@
+:root {
+    font-family: Inter, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+      :root { font-family: InterVariable, sans-serif; }
+}
+
+body {
+    color: #333;
+    text-align: center;
+    background-color: #ffeeee;
+}
+
+#numberShow {
+    font-weight: 900;
+    font-size: 130px;
+}
+#numberShow.full {
+    font-size: 70px;
+}
+
+p {
+    font-size: 50px;
+    font-weight: 500;
+}
+
+#prevNums {
+    font-weight: 700;
+}
+
+#genBtn {
+    background: #333;
+    color: whitesmoke;
+    padding: 32px;
+    font-size: 30px;
+    cursor: pointer;
+    font-family: Inter, sans-serif;
+    position: absolute;
+    bottom: 20px;
+    transform: translateX(-50%);
+}

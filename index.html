@@ -12,103 +12,13 @@
         <link rel="preconnect" href="https://rsms.me/">
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         <meta name="viewport" content="width=initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-        <style>
-            :root {
-                font-family: Inter, sans-serif;
-                font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
-            }
-            @supports (font-variation-settings: normal) {
-                  :root { font-family: InterVariable, sans-serif; }
-            }
-
-            body {
-                color: #333;
-                text-align: center;
-                background-color: #ffeeee;
-            }
-
-            #numberShow {
-                font-weight: 900;
-                font-size: 130px;
-            }
-            #numberShow.full {
-                font-size: 70px;
-            }
-
-            p {
-                font-size: 50px;
-                font-weight: 500px;
-            }
-
-            #genBtn {
-                background: #333;
-                color: whitesmoke;
-                padding: 32px;
-                font-size: 20px;
-                cursor: pointer;
-                font-family: Inter, sans-serif;
-                position: absolute;
-                bottom: 20px;
-                transform: translateX(-50%);
-            }
-        </style>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h1 id="numberShow" class="full">The numbers will appear here</h1>
         <p>Previous numbers: <span id="prevNums">None</span></p>
         <button id="genBtn">Generate a Number</button>
 
-        <script>
-            let numberShow = document.getElementById("numberShow");
-            let prevNums = document.getElementById("prevNums");
-            let genBtn = document.getElementById("genBtn");
-
-            let nums = [];
-
-            function makeListReadeable(list) {
-                let result = "";
-
-                for(let i = 0; i < list.length; i++) {
-                    result += list[i] + ", ";
-                }
-
-                return result.slice(0, result.length - 2);
-            }
-
-            function generateNewNumber() {
-                if(nums.length == 100) {
-                    numberShow.innerText = "Bingo Finished, no more numbers can be generated."
-                    numberShow.classList.add("full");
-                    return;
-                }
-
-                numberShow.classList. remove("full");
-
-
-                let validNum = false;
-                let num;
-                while(!validNum) {
-                    num = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-
-                    validNum = true;
-
-                    for(let i = 0; i < nums.length; i++) {
-                        if(nums[i] == num) {
-                            validNum = false;
-                        }
-                    }
-                }
-
-                numberShow.innerText = num;
-                nums.push(num);
-
-                prevNums.innerText = makeListReadeable(nums);
-            }
-
-            genBtn.addEventListener("click", (e) => {
-                generateNewNumber()
-            });
-        </script>
+        <script src="index.js"></script>
     </body>
 </html>
